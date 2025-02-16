@@ -10,15 +10,6 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const database = firebase.firestore();
 
-FBInstant.initializeAsync()
-    .then(() => {
-        console.log('Facebook Instant Games SDK initialized.');
-        // Start your game logic here
-    })
-    .catch((error) => {
-        console.error('Error initializing SDK:', error);
-});
-
 const questions = [
     {
         image: "./assets/questions/Q 1.png",
