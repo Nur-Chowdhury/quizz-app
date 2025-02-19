@@ -7,8 +7,8 @@ output_directory = "./assets/resizedAward/"
 if not os.path.exists(output_directory):
     os.makedirs(output_directory)
 
-target_size = (250, 250)
-quality = 100
+target_size = (150, 150)
+quality = 70
 
 def resize_and_compress_image(input_path, output_path):
     with Image.open(input_path) as img:
