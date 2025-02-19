@@ -1,8 +1,8 @@
 import os
 from PIL import Image
 
-input_directory = "./assets/Award/"
-output_directory = "./assets/resizedAward/"
+input_directory = "./assets/questions/"
+output_directory = "./assets/resizedQuestions/"
 
 if not os.path.exists(output_directory):
     os.makedirs(output_directory)
