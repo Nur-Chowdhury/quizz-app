@@ -12,7 +12,7 @@ const database = firebase.firestore();
 
 const questions = [
     {
-        image: "./assets/questions/Q 1.png",
+        image: "./assets/resizedQuestions/Q 1.png",
         question: "আপনার এলাকার পানের দোকানের পাশে প্লাস্টিকের বোতল ফেলা কি আপনার নাগরিক অধিকার?",
         options: [
             { text: "হ্যাঁ, এটা কাউকে কাজ দেয়, আমি সাহায্য করছি!", score: -15 },
@@ -21,7 +21,7 @@ const questions = [
         ]
     },
     {
-        image: "./assets/questions/Q 2.png",
+        image: "./assets/resizedQuestions/Q 2.png",
         question: "আপনার কি মনে হয় পাবলিক টয়লেট ব্যবহারের চেয়ে রাস্তাই ভালো?",
         options: [
             { text: "হ্যাঁ, খোলা আকাশের নিচে বেশি আরাম।", score: -20 },
@@ -30,7 +30,7 @@ const questions = [
         ]
     },
     {
-        image: "./assets/questions/q 3.png",
+        image: "./assets/resizedQuestions/q 3.png",
         question: "পাবলিক বাসে কি নারী ও প্রবীণদের সিট ছেড়ে দেন?",
         options: [
             { text: "না, সিট আমার রাজত্ব।", score: -15 },
@@ -39,7 +39,7 @@ const questions = [
         ]
     },
     {
-        image: "./assets/questions/q4.png",
+        image: "./assets/resizedQuestions/q4.png",
         question: "আপনি কি পার্কে বেড়াতে গিয়ে খাবারের প্যাকেট রেখে আসেন?",
         options: [
             { text: "হ্যাঁ, এটাই তো পিকনিকের মজা।", score: -15 },
@@ -48,7 +48,7 @@ const questions = [
         ]
     },
     {
-        image: "./assets/questions/q5.jpeg",
+        image: "./assets/resizedQuestions/q5.jpeg",
         question: "রাস্তায় কাউকে মারতে বা ভাংচুর করতে দেখলে আপনি কি করেন?",
         options: [
             { text: "ভিডিও করি।", score: -10 },
@@ -57,7 +57,7 @@ const questions = [
         ]
     },
     {
-        image: "./assets/questions/q 6.png",
+        image: "./assets/resizedQuestions/q 6.png",
         question: "আপনার কি মনে হয় স্কুল-কলেজের দেয়ালে পোস্টার লাগানো আর্ট?",
         options: [
             { text: "হ্যাঁ, প্রচারের জন্য জায়গা দরকার।", score: -10 },
@@ -66,7 +66,7 @@ const questions = [
         ]
     },
     {
-        image: "./assets/questions/q 7.png",
+        image: "./assets/resizedQuestions/q 7.png",
         question: "আপনি কি ভিড়ের মধ্যে আগে যাওয়ার জন্য ধাক্কা মারা নিজের ‘প্রফেশনাল স্কিল’ ভাবেন?",
         options: [
             { text: "হ্যাঁ, আগে যাওয়াই আসল।", score: -15 },
@@ -75,7 +75,7 @@ const questions = [
         ]
     },
     {
-        image: "./assets/questions/q 8.png",
+        image: "./assets/resizedQuestions/q 8.png",
         question: "আপনি কি ময়লা ফেলার সময় ‘ময়লা যেমন তেমন জায়গায় ফেলো’ এই তত্ত্বে বিশ্বাসী?",
         options: [
             { text: "অবশ্যই! কারণ মাটি সবকিছু নেয়।", score: -20 },
@@ -84,7 +84,7 @@ const questions = [
         ]
     },
     {
-        image: "./assets/questions/q 9.png",
+        image: "./assets/resizedQuestions/q 9.png",
         question: "আপনি কি মনে করেন ‘ট্যাক্স’ দেওয়া শুধু বড়লোকদের দায়িত্ব?",
         options: [
             { text: "হ্যাঁ, আমার টাকা বাঁচাতে হবে।", score: -20 },
@@ -93,7 +93,7 @@ const questions = [
         ]
     },
     {
-        image: "./assets/questions/q 10.png",
+        image: "./assets/resizedQuestions/q 10.png",
         question: "আপনি কি ট্রাফিক লাইটে লাল সংকেত দেখে নিজেকে ‘আমি VIP’ ভাবেন?",
         options: [
             { text: "হ্যাঁ, লাল সংকেত VIP-দের জন্য নয়।", score: -20 },
@@ -102,7 +102,7 @@ const questions = [
         ]
     },
     {
-        image: "./assets/questions/11.png",
+        image: "./assets/resizedQuestions/11.png",
         question: "আপনি কি নিজের এলাকায় রাস্তায় আলোর খুঁটি ঠিক না থাকলে অভিযোগ করেন?",
         options: [
             { text: "হ্যাঁ, আমি নাগরিক অধিকার নিয়ে সচেতন।", score: +20 },
