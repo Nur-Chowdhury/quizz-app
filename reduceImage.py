@@ -7,8 +7,8 @@ output_directory = "./assets/resizedQuestions/"
 if not os.path.exists(output_directory):
     os.makedirs(output_directory)
 
-target_size = (150, 150)
-quality = 70
+target_size = (200, 200)
+quality = 80
 
 def resize_and_compress_image(input_path, output_path):
     with Image.open(input_path) as img:

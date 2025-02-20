@@ -112,6 +112,73 @@ const questions = [
     }
 ];
 
+const results = [
+    { 
+        minScore: 90, 
+        title: 'অলরাউন্ডার সুনাগরিক', 
+        icon: '🏅',
+        imgs: ["./assets/Award/01_Allrounder Sunagorik 1.png"]
+    },
+    { 
+        minScore: 70, 
+        title: 'Pookie সুনাগরিক', 
+        icon: '🥹🎀',
+        imgs: ["./assets/Award/02_Pookie Sunagorik 1.jpg", "./assets/Award/02_Pookie Sunagorik 2.jpg", "./assets/Award/02_Pookie Sunagorik 3.jpeg"]
+    },
+    { 
+        minScore: 50, 
+        title: 'প্রেমিক সুনাগরিক', 
+        icon: '🥰',
+        imgs: ["./assets/Award/03_Premik Sunagorik 01.jpeg", "./assets/Award/03_Premik Sunagorik 02.jpg", "./assets/Award/03_Premik sunagorik 03.jpg"] 
+    },
+    { 
+        minScore: 30, 
+        title: 'ইন্টেরিম সুনাগরিক', 
+        icon: '⌛',
+        imgs: ["./assets/Award/04_Majhemodhye Sunagorik 02.jpeg", "./assets/Award/04_Majhemodhye Sunagorik 03.jpg", "./assets/Award/04_majhemodhye sunagorik.png"]
+    },
+    { 
+        minScore: 0, 
+        title: 'পল্টিবাজ সুনাগরিক', 
+        icon: '🤸',
+        imgs: ["./assets/Award/05_Poltibaj sunagorik 2.jpeg", "./assets/Award/05_Poltibaj sunagorik 3.jpeg", "./assets/Award/05_Poltibaj sunagorik.png"]
+    },
+    { 
+        minScore: -20, 
+        title: 'ঘুমন্ত সুনাগরিক', 
+        icon: '😴',
+        imgs: ["./assets/Award/06_Ghumonto sunagorik 02.jpeg", "./assets/Award/06_ghumonto sunagorik 03.jpeg", "./assets/Award/06_ghumonto sunagorik.png"] 
+    },
+    { 
+        minScore: Number.MIN_SAFE_INTEGER, 
+        title: 'ডেড ইনসাইড সুনাগরিক', 
+        icon: '😵',
+        imgs: ["./assets/Award/07_Ded inside sunagorik 1.jpeg", "./assets/Award/07_Ded inside sunagorik 2.webp", "./assets/Award/07_Ded inside sunagorik 3.png"] 
+    },
+];
+
+const preloadedImages = [];
+
+function preloadImages() {
+    questions.forEach(q => {
+        const img = new Image();
+        img.src = q.image;
+        preloadedImages.push(img);
+    });
+
+    results.forEach(result => {
+        result.imgs.forEach(imgSrc => {
+            const img = new Image();
+            img.src = imgSrc;
+            preloadedImages.push(img);
+        });
+    });
+
+    console.log("Images preloaded:", preloadedImages);
+}
+
+window.onload = preloadImages;
+
 let currentQuestion = 0;
 let totalScore = 0;
 
@@ -186,7 +253,6 @@ function emailSubmit() {
         timestamp: new Date().toISOString()
     };
 
-    // Use Firestore methods to add the userData
     database.collection('participant-emails').add(userData)
     .then(() => {
         showCustomDialog('আপনার ই-মেইল প্রদানের জন্য ধন্যবাদ!');
@@ -216,7 +282,9 @@ function loadQuestion() {
 
     const question = questions[currentQuestion];
     questionElement.textContent = question.question;
-    imageElement.src = question.image;
+    // imageElement.src = question.image;
+    const preloadedImg = preloadedImages.find(img => img.src.includes(question.image));
+    imageElement.src = preloadedImg ? preloadedImg.src : question.image;
     optionsElement.innerHTML = '';
 
     const shuffledOptions = shuffle([...question.options]);
@@ -251,56 +319,14 @@ function showResult() {
     const badge = document.querySelector('.badge');
 
 
-    const results = [
-        { 
-            minScore: 90, 
-            title: 'অলরাউন্ডার সুনাগরিক', 
-            icon: '🏅',
-            imgs: ["./assets/Award/01_Allrounder Sunagorik 1.png"]
-        },
-        { 
-            minScore: 70, 
-            title: 'Pookie সুনাগরিক', 
-            icon: '🥹🎀',
-            imgs: ["./assets/Award/02_Pookie Sunagorik 1.jpg", "./assets/Award/02_Pookie Sunagorik 2.jpg", "./assets/Award/02_Pookie Sunagorik 3.jpeg"]
-        },
-        { 
-            minScore: 50, 
-            title: 'প্রেমিক সুনাগরিক', 
-            icon: '🥰',
-            imgs: ["./assets/Award/03_Premik Sunagorik 01.jpeg", "./assets/Award/03_Premik Sunagorik 02.jpg", "./assets/Award/03_Premik sunagorik 03.jpg"] 
-        },
-        { 
-            minScore: 30, 
-            title: 'ইন্টেরিম সুনাগরিক', 
-            icon: '⌛',
-            imgs: ["./assets/Award/04_Majhemodhye Sunagorik 02.jpeg", "./assets/Award/04_Majhemodhye Sunagorik 03.jpg", "./assets/Award/04_majhemodhye sunagorik.png"]
-        },
-        { 
-            minScore: 0, 
-            title: 'পল্টিবাজ সুনাগরিক', 
-            icon: '🤸',
-            imgs: ["./assets/Award/05_Poltibaj sunagorik 2.jpeg", "./assets/Award/05_Poltibaj sunagorik 3.jpeg", "./assets/Award/05_Poltibaj sunagorik.png"]
-        },
-        { 
-            minScore: -20, 
-            title: 'ঘুমন্ত সুনাগরিক', 
-            icon: '😴',
-            imgs: ["./assets/Award/06_Ghumonto sunagorik 02.jpeg", "./assets/Award/06_ghumonto sunagorik 03.jpeg", "./assets/Award/06_ghumonto sunagorik.png"] 
-        },
-        { 
-            minScore: Number.MIN_SAFE_INTEGER, 
-            title: 'ডেড ইনসাইড সুনাগরিক', 
-            icon: '😵',
-            imgs: ["./assets/Award/07_Ded inside sunagorik 1.jpeg", "./assets/Award/07_Ded inside sunagorik 2.webp", "./assets/Award/07_Ded inside sunagorik 3.png"] 
-        },
-    ];
-
     const result = results.find(r => totalScore >= r.minScore);
 
-    const selImg = result.imgs[Math.floor(Math.random() * result.imgs.length)];
-    
-    image.src = selImg;
+    //const selImg = result.imgs[Math.floor(Math.random() * result.imgs.length)];
+    // image.src = selImg;
+    const randomImgSrc = result.imgs[Math.floor(Math.random() * result.imgs.length)];
+    const preloadedResultImg = preloadedImages.find(img => img.src.includes(randomImgSrc));
+    image.src = preloadedResultImg ? preloadedResultImg.src : randomImgSrc;
+
     resultTitle.textContent = result.title;
     badge.textContent = result.icon;
 
